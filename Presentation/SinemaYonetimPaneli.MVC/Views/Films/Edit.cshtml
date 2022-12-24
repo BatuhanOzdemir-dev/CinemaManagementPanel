@@ -1,0 +1,41 @@
+﻿@using SinemaYonetimPaneli.Domain.Entities;
+
+@model Film
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Düzenle</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="filmID" />
+            <div class="form-group">
+                <label asp-for="filmAd" class="control-label">Film Adı</label>
+                <input asp-for="filmAd" class="form-control" />
+                <span asp-validation-for="filmAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="filmYapimYil" class="control-label">Yapım Yılı</label>
+                <input asp-for="filmYapimYil" class="form-control" />
+                <span asp-validation-for="filmYapimYil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="All">Listeye Dön</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

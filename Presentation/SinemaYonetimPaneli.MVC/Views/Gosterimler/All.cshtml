@@ -1,0 +1,102 @@
+﻿@using SinemaYonetimPaneli.Domain.Entities;
+
+@model IEnumerable<Gosterim>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Gösterimler</h1>
+    <p>
+        <a asp-action="Create">Gösterim Ekle</a>
+    </p>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Film Adı
+                </th>
+                <th>
+                    Yapım Yılı
+                </th>
+                <th>
+                    Salon
+                </th>
+                <th>
+                    Gösterim Yılı
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Films" asp-action="Details" asp-route-id="@item.film.filmID">
+                            @Html.DisplayFor(modelItem => item.film.filmAd)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.film.filmYapimYil)
+                    </td>
+                    <td>
+                        <a asp-controller="Gosterimler" asp-action="AllInSalon" asp-route-id="@item.salon.salonID">
+                            @Html.DisplayFor(modelItem => item.salon.salonAd)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gosterimYil)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+    <form asp-action="AllInRange">
+        <h4 class="mt-4">Belirli bir aralıkta gösterilen filmleri görüntülemek için:</h4>
+        <hr />
+        <div class="form-group col-4">
+            <label class="control-label">Başlangıç Yılı</label>
+            <input type="number" class="form-control" name="year1" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group col-4">
+            <label class="control-label">Bitiş Yılı</label>
+            <input type="number" class="form-control" name="year2" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3 mb-3">
+            <input type="submit" value="Ara" formmethod="get" class="btn btn-primary" />
+        </div>
+    </form>
+    <hr />
+    <form asp-action="AllInSalon">
+        <h4 class="mt-4">Belirli bir salonda gösterilen filmleri görüntülemek için (sadece salonID ile çalışır):</h4>
+        <hr />
+        <div class="form-group col-4">
+            <label class="control-label">Salon ID</label>
+            <input type="number" class="form-control" name="salonID" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3 mb-3">
+            <input type="submit" value="Ara" formmethod="get" class="btn btn-primary" />
+        </div>
+    </form>
+    <form asp-action="AllWithMovie">
+        <h4 class="mt-4">Belirli bir filmin gösterimlerini görmek için (sadece filmID ile çalışır):</h4>
+        <hr />
+        <div class="form-group col-4">
+            <label class="control-label">Film ID</label>
+            <input type="number" class="form-control" name="filmID" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3 mb-3">
+            <input type="submit" value="Ara" formmethod="get" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,66 @@
+﻿@using SinemaYonetimPaneli.Domain.Entities;
+
+@model IEnumerable<Film>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Filmler</h1>
+    <p>
+        <a asp-action="Create">Film Ekle</a>
+    </p>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Film Adı
+                </th>
+                <th>
+                    Yapım Yılı
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.filmAd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.filmYapimYil)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.filmID">Düzenle</a> |
+                        <a asp-action="Details" asp-route-id="@item.filmID">Detaylar</a> |
+                        <a asp-action="Delete" asp-route-id="@item.filmID">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+    <form asp-action="AllInRange">
+        <h4 class="mt-4">Belirli bir aralığı görüntülemek için:</h4>
+        <hr />
+        <div class="form-group col-4">
+            <label class="control-label">Başlangıç Yılı</label>
+            <input type="number" class="form-control" name="year1" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group col-4">
+            <label class="control-label">Bitiş Yılı</label>
+            <input type="number" class="form-control" name="year2" />
+            <span class="text-danger"></span>
+        </div>
+        <div class="form-group mt-3 mb-3">
+            <input type="submit" value="Ara" formmethod="get" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
