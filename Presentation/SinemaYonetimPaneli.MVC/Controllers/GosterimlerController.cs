@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SinemaYonetimPaneli.Application.Abstractions;
-using SinemaYonetimPaneli.Application.ViewModels;
 
 namespace SinemaYonetimPaneli.MVC.Controllers
 {

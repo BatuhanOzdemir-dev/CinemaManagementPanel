@@ -44,7 +44,7 @@
                         @Html.DisplayFor(modelItem => item.film.filmYapimYil)
                     </td>
                     <td>
-                        <a asp-controller="Gosterimler" asp-action="AllInSalon" asp-route-id="@item.salon.salonID">
+                        <a asp-controller="Gosterimler" asp-action="AllInSalon" asp-route-id="salonID=@item.salon.salonID">
                             @Html.DisplayFor(modelItem => item.salon.salonAd)
                         </a>
                     </td>

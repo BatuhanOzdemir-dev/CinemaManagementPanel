@@ -21,17 +21,13 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
 
         public async Task<IEnumerable<Gosterim>> GetAllGosterimsAsync()
         {
-            var entities = await _context.Gosterims.ToListAsync();
-            if (entities != null)
-            {
-                return entities;
-            }
-            return null;
+            var entities = await _context.Gosterims.Include(g => g.film).Include(g => g.salon).ToListAsync();
+            return entities;
         }
 
-        public async Task<IEnumerable<Gosterim>> GetAllGosterimsAsync(string salon)
+        public async Task<IEnumerable<Gosterim>> GetGosterimsAsync(string salon)
         {
-            var entities = await Task.Run(() => _context.Gosterims.Where(p => p.salon.salonAd == salon));
+            var entities = await Task.Run(() => _context.Gosterims.Include(g => g.film).Include(g => g.salon).Where(p => p.salon.salonAd == salon));
             if (entities != null)
             {
                 return entities.ToList();
@@ -39,9 +35,9 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
             return null;
         }
 
-        public async Task<IEnumerable<Gosterim>> GetGosterims(int year)
+        public async Task<IEnumerable<Gosterim>> GetGosterimsAsync(int year)
         {
-            var entities = await Task.Run(() => _context.Gosterims.Where(p => p.gosterimYil == year));
+            var entities = await Task.Run(() => _context.Gosterims.Include(g => g.film).Include(g => g.salon).Where(p => p.gosterimYil == year));
             if (entities != null)
             {
                 return entities.ToList();
@@ -49,10 +45,9 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
             return null;
         }
 
-        public async Task<IEnumerable<Gosterim>> GetGosterims(int year1, int year2)
+        public async Task<IEnumerable<Gosterim>> GetGosterimsAsync(int year1, int year2)
         {
-            ChangeYears(year1, year2);
-            var entities = await Task.Run(() => (_context.Gosterims.Where(p => (p.gosterimYil >= year1) & (p.gosterimYil <= year2))));
+            var entities = await Task.Run(() => (_context.Gosterims.Include(g => g.film).Include(g => g.salon).Where(p => (p.gosterimYil >= year1) & (p.gosterimYil <= year2))));
             if (entities != null)
             {
                 return entities.ToList();
@@ -60,9 +55,9 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
             return null;
         }
 
-        public async Task<IEnumerable<Gosterim>> GetGosterims(Salon salon)
+        public async Task<IEnumerable<Gosterim>> GetGosterimsAsync(Salon salon)
         {
-            var entities = await Task.Run(() => _context.Gosterims.Where(p => p.salon == salon));
+            var entities = await Task.Run(() => _context.Gosterims.Include(g => g.film).Include(g => g.salon).Where(p => p.salon == salon));
             if (entities != null)
             {
                 return entities.ToList();
@@ -70,9 +65,9 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
             return null;
         }
 
-        public async Task<IEnumerable<Gosterim>> GetGosterims(Film film)
+        public async Task<IEnumerable<Gosterim>> GetGosterimsAsync(Film film)
         {
-            var entities = await Task.Run(() => _context.Gosterims.Where(p => p.film == film));
+            var entities = await Task.Run(() => _context.Gosterims.Include(g => g.film).Include(g => g.salon).Where(p => p.film == film));
             if (entities != null)
             {
                 return entities.ToList();
@@ -80,39 +75,5 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
             return null;
         }
 
-        public Task<IEnumerable<Gosterim>> GetGosterimsAsync(int year)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Gosterim>> GetGosterimsAsync(int year1, int year2)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Gosterim>> GetGosterimsAsync(Salon salon)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Gosterim>> GetGosterimsAsync(string salon)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<Gosterim>> GetGosterimsAsync(Film film)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ChangeYears(int year1, int year2)
-        {
-            if (year1 > year2)
-            {
-                int temp = year1;
-                year1 = year2;
-                year2 = temp;
-            }
-        }
     }
 }

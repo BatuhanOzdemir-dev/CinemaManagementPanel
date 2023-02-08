@@ -3,6 +3,7 @@ using SinemaYonetimPaneli.Application.Abstractions;
 using SinemaYonetimPaneli.Domain.Entities;
 using SinemaYonetimPaneli.Persistence;
 using System.Collections.Generic;
+using System.Net;
 
 namespace SinemaYonetimPaneli.MVC.Controllers
 {
@@ -45,8 +46,19 @@ namespace SinemaYonetimPaneli.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Film film)
         {
-            await _filmWriteRepository.AddFilmAsync(film);
-            await _filmWriteRepository.SaveChangesAsync();
+            try
+            {
+                throw new Exception();
+                await _filmWriteRepository.AddFilmAsync(film);
+            }
+            catch(Exception e)
+            {
+                return Ok(HttpStatusCode.BadRequest);
+            }
+            finally
+            {
+                await _filmWriteRepository.SaveChangesAsync();
+            }
             return View(film);
         }
 

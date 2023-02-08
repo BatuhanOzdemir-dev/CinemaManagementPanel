@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SinemaYonetimPaneli.Application.Abstractions;
-using SinemaYonetimPaneli.Application.ViewModels;
 using SinemaYonetimPaneli.Domain.Entities;
 using SinemaYonetimPaneli.Persistence.Contexts;
 using System;

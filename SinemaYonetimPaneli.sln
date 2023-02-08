@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D0FB192B-01D4-44F7-8552-704752B3C185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinemaYonetimPaneli.MVC", "Presentation\SinemaYonetimPaneli.MVC\SinemaYonetimPaneli.MVC.csproj", "{F49A6210-895A-44BD-8F3F-283F8D67E40C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinemaYonetimPaneli.MVC", "Presentation\SinemaYonetimPaneli.MVC\SinemaYonetimPaneli.MVC.csproj", "{F49A6210-895A-44BD-8F3F-283F8D67E40C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinemaYonetimPaneli.Domain", "Core\SinemaYonetimPaneli.Domain\SinemaYonetimPaneli.Domain.csproj", "{CBC6CFF9-A2AD-4ADF-9A73-BBB0D7456412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinemaYonetimPaneli.Domain", "Core\SinemaYonetimPaneli.Domain\SinemaYonetimPaneli.Domain.csproj", "{CBC6CFF9-A2AD-4ADF-9A73-BBB0D7456412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinemaYonetimPaneli.Application", "Core\SinemaYonetimPaneli.Application\SinemaYonetimPaneli.Application.csproj", "{F25340E1-7A79-4B52-A86E-21A869A44D5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinemaYonetimPaneli.Application", "Core\SinemaYonetimPaneli.Application\SinemaYonetimPaneli.Application.csproj", "{F25340E1-7A79-4B52-A86E-21A869A44D5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinemaYonetimPaneli.Infrastructure", "Infrastructure\SinemaYonetimPaneli.Infrastructure\SinemaYonetimPaneli.Infrastructure.csproj", "{1737CE31-D345-4398-8A6F-9BF2DD6A962A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinemaYonetimPaneli.Infrastructure", "Infrastructure\SinemaYonetimPaneli.Infrastructure\SinemaYonetimPaneli.Infrastructure.csproj", "{1737CE31-D345-4398-8A6F-9BF2DD6A962A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinemaYonetimPaneli.Persistence", "Infrastructure\SinemaYonetimPaneli.Persistence\SinemaYonetimPaneli.Persistence.csproj", "{81103257-0FD6-4E40-B1E7-DCA1C0AA338D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinemaYonetimPaneli.Persistence", "Infrastructure\SinemaYonetimPaneli.Persistence\SinemaYonetimPaneli.Persistence.csproj", "{81103257-0FD6-4E40-B1E7-DCA1C0AA338D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
