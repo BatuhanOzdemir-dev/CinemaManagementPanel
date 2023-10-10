@@ -48,7 +48,6 @@ namespace SinemaYonetimPaneli.MVC.Controllers
         {
             try
             {
-                throw new Exception();
                 await _filmWriteRepository.AddFilmAsync(film);
             }
             catch(Exception e)

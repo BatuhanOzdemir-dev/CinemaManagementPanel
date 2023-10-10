@@ -10,7 +10,7 @@ namespace SinemaYonetimPaneli.Domain.Entities
     {
         public int filmID { get; set; }
         public string filmAd { get; set;}
-        public string filmYapimYil { get; set; }
+        public int filmYapimYil { get; set; }
         public ICollection<Gosterim>? gosterims { get; set; }
     }
 }

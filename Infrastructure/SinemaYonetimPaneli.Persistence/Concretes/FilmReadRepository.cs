@@ -51,9 +51,8 @@ namespace SinemaYonetimPaneli.Persistence.Concretes
 
         public async Task<IEnumerable<Film>> GetFilmsByRangeAsync(int year1, int year2)
         {
-            //var entities = await Task.Run(() => (_context.Films.Where(p => (p.filmYapimYil >= year1) & (p.filmYapimYil <= year2))));
-            //return entities;
-            return null;
+            var entities = await Task.Run(() => (_context.Films.Where(p => (p.filmYapimYil >= year1) & (p.filmYapimYil <= year2))));
+            return entities;
         }
 
         public async Task<IEnumerable<Film>> GetFilmsByYearAsync(int year)
